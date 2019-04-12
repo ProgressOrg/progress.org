@@ -85,3 +85,8 @@ figure.w-richtext-align-floatright figcaption {
 	line-height: 14px;
 	color: #666
 }
+
+.w-richtext a {
+	background-color: #120065;
+	color: #fff;
+}
