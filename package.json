@@ -1,0 +1,10 @@
+{
+  "name": "progress.org",
+  "version": "1.0.0",
+  "description": "Code used on Progress.org",
+  "main": "index.js",
+  "repository": "https://github.com/ProgressOrg/progress.org.git",
+  "author": "Martin Adams <heymartinadams@users.noreply.github.com>",
+  "license": "SEE LICENSE IN README.md",
+  "private": false
+}

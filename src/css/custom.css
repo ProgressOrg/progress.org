@@ -1,0 +1,87 @@
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Neue Haas Grotesk'
+}
+
+div.w-richtext h3 {
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 40px;
+	letter-spacing: 1px
+}
+
+div.w-richtext p,
+li,
+ul {
+	font-family: 'Neue Haas Grotesk';
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 32px;
+	margin: 16px 0;
+	color: #333;
+	letter-spacing: 1px
+}
+
+div.w-richtext p strong {
+	font-weight: 600
+}
+
+ul {
+	list-style-position: inside;
+	margin: 0
+}
+
+ul li {
+	display: list-item;
+	list-style-type: disc;
+	margin: 0
+}
+
+.w-richtext blockquote {
+	font-family: 'Neue Haas Grotesk';
+	font-weight: 500;
+	font-size: 24px;
+	font-style: italic;
+	line-height: 32px;
+	border-left: none;
+	margin: 16px;
+	letter-spacing: 1px
+}
+
+::selection {
+	background: #cef1fc
+}
+
+::-moz-selection {
+	background: #cef1fc
+}
+
+figure div img {
+	margin-top: 20px;
+	max-width: 500px
+}
+
+figure.w-richtext-align-floatleft div img {
+	margin: 0 20px 0 0
+}
+
+figure.w-richtext-align-floatleft figcaption {
+	margin: 0 20px 0 0
+}
+
+figure.w-richtext-align-floatright div img {
+	margin: 0 0 0 20px
+}
+
+figure.w-richtext-align-floatright figcaption {
+	margin: 0 0 0 20px
+}
+
+.w-richtext figcaption {
+	font-size: 12px;
+	line-height: 14px;
+	color: #666
+}

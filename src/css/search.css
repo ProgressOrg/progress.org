@@ -1,0 +1,85 @@
+/* SEARCH INPUT FIELD */
+.st-default-search-input::placeholder {
+  color: #AAA !important;
+}
+.st-default-search-input {
+  display:block !important;
+  width:100% !important;
+  height:50px !important;
+  max-width:1024px !important;
+  margin:0 auto !important;
+  padding:0 10px !important;
+  border:1px solid transparent !important;
+  border-radius:0px !important;
+  border-bottom:1px solid rgba(51, 51, 51, 0.3) !important;
+  background-color:transparent !important;
+  font-family:'Neue Haas Grotesk',sans-serif !important;
+  color:#888 !important;
+  font-size:40px !important;
+  line-height:50px !important;
+  font-weight:500 !important;
+  background: none !important;
+}
+
+/* SEARCH AUTOCOMPLETE */
+.st-autocomplete-container {
+  position:fixed;
+  width:100% !important;
+  height:100% !important;
+  max-width:1024px !important;
+  padding:0px !important;
+  border: 1px solid transparent !important;
+  background-color:#fafafa !important;
+  color: #333 !important;
+  z-index: 1000000 !important;
+  overflow: auto !important;
+}
+.st-autocomplete-result {
+  width:1094px !important;
+  height:600px !important;
+  max-height:100% !important;
+  max-width:100% !important;
+  border: 1px solid transparent !important;
+  color: #333 !important;
+}
+a.st-ui-result.st-ui-image {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+
+/* SEARCH RESULT CONTAINER */
+.st-ui-container {
+  max-height: 80% !important;
+}
+@media only screen and (max-width: 600px) {
+  .st-ui-container { max-height: 100% !important; }
+}
+
+/* SEARCH RESULT IMAGE */
+.st-ui-thumbnail {
+  width: 88px !important;
+  height: 88px !important;
+  margin-right: 10px !important;
+}
+
+/* SEARCH TITLE AND SUBTITLE */
+.st-ui-type-detail,.st-ui-type-heading {
+  font-family:'Neue Haas Grotesk',sans-serif !important;
+  color:#333 !important;
+  letter-spacing:.5px !important;
+}
+.st-ui-type-heading {
+  font-size:26px !important;
+  font-weight:500 !important;
+  line-height:40px !important;
+  margin: 0px !important;
+}
+.st-ui-type-detail {
+  font-size:18px !important;
+  font-weight:500 !important;
+  line-height:20px !important;
+  max-height:40px !important;
+}
