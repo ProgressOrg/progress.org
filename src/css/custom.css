@@ -86,7 +86,6 @@ figure.w-richtext-align-floatright figcaption {
 	color: #666
 }
 
-.w-richtext a {
-	background-color: #130065b9;
-	color: #fff;
+.w-richtext a:hover {
+	text-decoration: underline
 }
