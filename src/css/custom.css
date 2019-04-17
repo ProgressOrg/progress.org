@@ -91,5 +91,6 @@ figure.w-richtext-align-floatright figcaption {
 }
 
 .w-richtext a.highlight {
+	font-weight: 400;
 	text-decoration: none;
 }
