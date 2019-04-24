@@ -90,3 +90,7 @@ figure.w-richtext-align-floatright figcaption {
 .w-richtext a {
 	text-decoration: underline;
 }
+
+.w-richtext a.highlight {
+	text-decoration: none !important;
+}
