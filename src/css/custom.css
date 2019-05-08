@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Palatino Linotype'
+	font-family: 'Neue Haas Grotesk'
 }
 
 div.w-richtext h3 {
@@ -17,7 +17,7 @@ div.w-richtext h3 {
 div.w-richtext p,
 li,
 ul {
-	font-family: 'Palatino Linotype';
+	font-family: 'Neue Haas Grotesk';
 	font-size: 26px;
 	font-weight: 500;
 	line-height: 36px;
