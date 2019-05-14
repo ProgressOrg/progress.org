@@ -41,7 +41,7 @@ ul li {
 	margin: 0
 }
 
-.w-richtext blockquote {
+div.w-richtext blockquote {
 	font-family: 'Neue Haas Grotesk';
 	font-weight: 500;
 	font-size: 24px;
@@ -81,16 +81,16 @@ figure.w-richtext-align-floatright figcaption {
 	margin: 0 0 0 20px
 }
 
-.w-richtext figcaption {
+div.w-richtext figcaption {
 	font-size: 12px;
 	line-height: 14px;
 	color: #666
 }
 
-.w-richtext a {
+div.w-richtext a {
 	text-decoration: underline;
 }
 
-.w-richtext a.highlight {
+div.w-richtext a.highlight {
 	text-decoration: none !important;
 }
