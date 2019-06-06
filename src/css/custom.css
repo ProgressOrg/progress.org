@@ -14,6 +14,18 @@ div.w-richtext h3 {
 	letter-spacing: 1px;
 }
 
+div.w-richtext p,
+li,
+ul {
+	font-family: 'Crimson Text';
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 30px;
+	margin: 16px 0;
+	color: #333;
+	letter-spacing: 1px;
+}
+
 div.w-richtext p strong {
 	font-weight: 600;
 }
