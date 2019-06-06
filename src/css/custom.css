@@ -4,41 +4,29 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Neue Haas Grotesk'
+	font-family: 'Neue Haas Grotesk';
 }
 
 div.w-richtext h3 {
 	font-size: 30px;
 	font-weight: 600;
 	line-height: 40px;
-	letter-spacing: 1px
-}
-
-div.w-richtext p,
-li,
-ul {
-	font-family: 'Neue Haas Grotesk';
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 30px;
-	margin: 16px 0;
-	color: #333;
-	letter-spacing: 1px
+	letter-spacing: 1px;
 }
 
 div.w-richtext p strong {
-	font-weight: 600
+	font-weight: 600;
 }
 
 ul {
 	list-style-position: inside;
-	margin: 0
+	margin: 0;
 }
 
 ul li {
 	display: list-item;
 	list-style-type: disc;
-	margin: 0
+	margin: 0;
 }
 
 div.w-richtext blockquote {
@@ -49,42 +37,42 @@ div.w-richtext blockquote {
 	line-height: 32px;
 	border-left: none;
 	margin: 16px;
-	letter-spacing: 1px
+	letter-spacing: 1px;
 }
 
 ::selection {
-	background: #cef1fc
+	background: #cef1fc;
 }
 
 ::-moz-selection {
-	background: #cef1fc
+	background: #cef1fc;
 }
 
 figure div img {
 	margin-top: 20px;
-	max-width: 500px
+	max-width: 500px;
 }
 
 figure.w-richtext-align-floatleft div img {
-	margin: 0 20px 0 0
+	margin: 0 20px 0 0;
 }
 
 figure.w-richtext-align-floatleft figcaption {
-	margin: 0 20px 0 0
+	margin: 0 20px 0 0;
 }
 
 figure.w-richtext-align-floatright div img {
-	margin: 0 0 0 20px
+	margin: 0 0 0 20px;
 }
 
 figure.w-richtext-align-floatright figcaption {
-	margin: 0 0 0 20px
+	margin: 0 0 0 20px;
 }
 
 div.w-richtext figcaption {
 	font-size: 12px;
 	line-height: 14px;
-	color: #666
+	color: #666;
 }
 
 div.w-richtext a {
