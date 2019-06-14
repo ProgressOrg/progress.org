@@ -23,7 +23,6 @@ ul {
 	line-height: 30px;
 	margin: 16px 0;
 	color: #333;
-	letter-spacing: 1px;
 }
 
 div.w-richtext p strong {
@@ -49,7 +48,6 @@ div.w-richtext blockquote {
 	line-height: 32px;
 	border-left: none;
 	margin: 16px;
-	letter-spacing: 1px;
 }
 
 ::selection {
