@@ -40,16 +40,6 @@ ul li {
 	margin: 0;
 }
 
-div.w-richtext blockquote {
-	font-family: 'Neue Haas Grotesk';
-	font-weight: 500;
-	font-size: 16px;
-	font-style: italic;
-	line-height: 24px;
-	border-left: none;
-	margin: 16px;
-}
-
 ::selection {
 	background: #cef1fc;
 }
