@@ -6,6 +6,9 @@ ul {
 	margin: 16px 0;
 	color: #333;
 }
+div.w-richtext p strong {
+	font-weight: 500;
+}
 
 ::selection {
 	background: #cef1fc;
