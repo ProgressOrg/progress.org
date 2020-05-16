@@ -1,3 +1,12 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Inter';
+}
+
 div.w-richtext h3 {
 	font-size: 30px;
 	font-weight: 600;
@@ -8,6 +17,7 @@ div.w-richtext h3 {
 div.w-richtext p,
 li,
 ul {
+	font-family: 'Inter';
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 30px;
@@ -31,6 +41,7 @@ ul li {
 }
 
 div.w-richtext blockquote {
+	font-family: 'Inter';
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 24px;
