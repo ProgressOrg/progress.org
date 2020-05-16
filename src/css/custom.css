@@ -1,3 +1,12 @@
+div.w-richtext p,
+li,
+ul {
+	font-size: 18px;
+	line-height: 26px;
+	margin: 16px 0;
+	color: #333;
+}
+
 ::selection {
 	background: #cef1fc;
 }
