@@ -1,8 +1,481 @@
 /*!
- * Social Share Kit v1.0.15 (http://socialsharekit.com)
+ * Social Share Kit v1.0.14 (http://socialsharekit.com)
  * Copyright 2015 Social Share Kit / Kaspars Sprogis.
  * @Licensed under Creative Commons Attribution-NonCommercial 3.0 license:
  * https://github.com/darklow/social-share-kit/blob/master/LICENSE
  * ---
  */
-var SocialShareKit=function(){function e(e){return b(e).share()}function t(e){"loading"!=document.readyState?e():document.addEventListener?document.addEventListener("DOMContentLoaded",e):document.attachEvent("onreadystatechange",function(){"loading"!=document.readyState&&e()})}function n(e){return document.querySelectorAll(e)}function r(e,t){for(var n=0;n<e.length;n++)t(e[n],n)}function o(e,t,n){e.addEventListener?e.addEventListener(t,n):e.attachEvent("on"+t,function(){n.call(e)})}function i(e,t,n){e.removeEventListener?e.removeEventListener(t,n):e.detachEvent("on"+t,n)}function a(e){return e.className.match(y)}function c(e){var t=e||window.event;return t.preventDefault?t.preventDefault():(t.returnValue=!1,t.cancelBubble=!0),t.currentTarget||t.srcElement}function s(e,t,n){var r,o,i,a;return t&&n?(o=document.documentElement.clientWidth/2-t/2,i=(document.documentElement.clientHeight-n)/2,a="status=1,resizable=yes,width="+t+",height="+n+",top="+i+",left="+o,r=window.open(e,"",a)):r=window.open(e),r.focus(),r}function u(e,t,n){var r,o=h(e,t,n),i=d(e,t,n,o),a="undefined"!=typeof o.title?o.title:l(t),c="undefined"!=typeof o.text?o.text:p(t),s=o.image?o.image:f("og:image"),u="undefined"!=typeof o.via?o.via:f("twitter:site"),m={shareUrl:i,title:a,text:c,image:s,via:u,options:e,shareUrlEncoded:function(){return encodeURIComponent(this.shareUrl)}};switch(t){case"facebook":r="https://www.facebook.com/share.php?u="+m.shareUrlEncoded();break;case"twitter":r="https://twitter.com/intent/tweet?url="+m.shareUrlEncoded()+"&text="+encodeURIComponent(a+(c&&a?" - ":"")+c),u&&(r+="&via="+u.replace("@",""));break;case"google-plus":r="https://plus.google.com/share?url="+m.shareUrlEncoded();break;case"pinterest":r="https://pinterest.com/pin/create/button/?url="+m.shareUrlEncoded()+"&description="+encodeURIComponent(c),s&&(r+="&media="+encodeURIComponent(s));break;case"tumblr":r="https://www.tumblr.com/share/link?url="+m.shareUrlEncoded()+"&name="+encodeURIComponent(a)+"&description="+encodeURIComponent(c);break;case"linkedin":r="https://www.linkedin.com/shareArticle?mini=true&url="+m.shareUrlEncoded()+"&title="+encodeURIComponent(a)+"&summary="+encodeURIComponent(c);break;case"vk":r="https://vkontakte.ru/share.php?url="+m.shareUrlEncoded();break;case"buffer":r="https://buffer.com/add?source=button&url="+m.shareUrlEncoded()+"&text="+encodeURIComponent(c);break;case"email":r="mailto:?subject="+encodeURIComponent(a)+"&body="+encodeURIComponent(a+"\n"+i+"\n\n"+c+"\n")}return m.networkUrl=r,e.onBeforeOpen&&e.onBeforeOpen(n,t,m),m.networkUrl}function d(e,t,n,r){return r=r||h(e,t,n),r.url||window.location.href}function l(e){var t;return"twitter"==e&&(t=f("twitter:title")),t||document.title}function p(e){var t;return"twitter"==e&&(t=f("twitter:description")),t||f("description")}function f(e,t){var r,o=n("meta["+(t?t:0===e.indexOf("og:")?"property":"name")+'="'+e+'"]');return o.length&&(r=o[0].getAttribute("content")||""),r||""}function h(e,t,n){var r,o,i,a,c=["url","title","text","image"],s={},u=n.parentNode;"twitter"==t&&c.push("via");for(a in c)o=c[a],i="data-"+o,r=n.getAttribute(i)||u.getAttribute(i)||(e[t]&&"undefined"!=typeof e[t][o]?e[t][o]:e[o]),"undefined"!=typeof r&&(s[o]=r);return s}function m(e,t){var n=document.createElement("div");n.innerHTML=t,n.className="ssk-num",e.appendChild(n)}function w(e,t,n,r){var o,i,a,c=encodeURIComponent(t);switch(e){case"facebook":o="https://graph.facebook.com/?id="+c,i=function(e){return r(e.share?e.share.share_count:0)};break;case"twitter":n&&n.twitter&&n.twitter.countCallback&&n.twitter.countCallback(t,r);break;case"google-plus":return o="https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ",a='[{"method":"pos.plusones.get","id":"p","params":{"id":"'+t+'","userId":"@viewer","groupId":"@self","nolog":true},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]',i=function(e){if(e=JSON.parse(e),e.length)return r(e[0].result.metadata.globalCounts.count)},void v(o,i,a);case"linkedin":o="https://www.linkedin.com/countserv/count/share?url="+c,i=function(e){return r(e.count)};break;case"pinterest":o="https://api.pinterest.com/v1/urls/count.json?url="+c,i=function(e){return r(e.count)};break;case"vk":o="https://vk.com/share.php?act=count&url="+c,i=function(e){return r(e)};break;case"buffer":o="https://api.bufferapp.com/1/links/shares.json?url="+c,i=function(e){return r(e.shares)}}o&&i&&k(e,o,i,a)}function v(e,t,n){var r=new XMLHttpRequest;r.onreadystatechange=function(){4===this.readyState&&this.status>=200&&this.status<400&&t(this.responseText)},r.open("POST",e,!0),r.setRequestHeader("Content-Type","application/json"),r.send(n)}function k(e,t,n){var r="cb_"+e+"_"+Math.round(1e5*Math.random()),o=document.createElement("script");return window[r]=function(e){try{delete window[r]}catch(e){}document.body.removeChild(o),n(e)},"vk"==e?window.VK={Share:{count:function(e,t){window[r](t)}}}:"google-plus"==e&&(window.services={gplus:{cb:window[r]}}),o.src=t+(t.indexOf("?")>=0?"&":"?")+"callback="+r,document.body.appendChild(o),!0}var b,g,y=/(twitter|facebook|google-plus|pinterest|tumblr|vk|linkedin|buffer|email)/,U="*|*";return g=function(e){var t=e||{},r=t.selector||".ssk";this.nodes=n(r),this.options=t},g.prototype={share:function(){function e(e){var t,n=c(e),r=a(n),o=r[0];if(r&&(t=u(p,o,n))){if(window.twttr&&n.getAttribute("href").indexOf("twitter.com/intent/")!==-1)return void n.setAttribute("href",t);if("email"!==o){var i,d;"buffer"===o?(i=800,d=680):(i=575,d=400);var l=s(t,i,d);if(p.onOpen&&p.onOpen(n,o,t,l),p.onClose)var f=window.setInterval(function(){l.closed!==!1&&(window.clearInterval(f),p.onClose(n,o,t,l))},250)}else document.location=t}}function n(){var e,t;for(e in f)t=e.split(U),function(e){w(t[0],t[1],p,function(t){for(var n in e)m(e[n],t)})}(f[e])}var l=this.nodes,p=this.options,f={},h=function(){l.length&&(r(l,function(t){var n,r=a(t);if(r){if(t.getAttribute("data-ssk-ready")){if(!p.reinitialize||!t._skkListener)return;i(t,"click",t._skkListener)}t.setAttribute("data-ssk-ready",!0),o(t,"click",e),t._skkListener=e,t.parentNode.className.indexOf("ssk-count")!==-1&&(r=r[0],n=r+U+d(p,r,t),n in f||(f[n]=[]),f[n].push(t))}}),n())};return p.forceInit===!0?h():t(h),this.nodes}},b=function(e){return new g(e)},{init:e}}();window.SocialShareKit=SocialShareKit;
+var SocialShareKit = (function () {
+	var supportsShare = /(twitter|facebook|google-plus|pinterest|tumblr|vk|linkedin|buffer|email)/,
+		sep = '*|*',
+		wrap,
+		_wrap
+
+	// Wrapper to support multiple instances per page by selector
+	_wrap = function (opts) {
+		var options = opts || {},
+			selector = options.selector || '.ssk'
+		this.nodes = $(selector)
+		this.options = options
+	}
+
+	// Instance related functions
+	_wrap.prototype = {
+		share: function () {
+			var els = this.nodes,
+				options = this.options,
+				urlsToCount = {}
+
+			var _init = function () {
+				if (!els.length) return
+
+				each(els, function (el) {
+					var network = elSupportsShare(el),
+						uniqueKey
+					if (!network) {
+						return
+					}
+
+					if (el.getAttribute('data-ssk-ready')) return
+
+					el.setAttribute('data-ssk-ready', true)
+					addEventListener(el, 'click', onClick)
+
+					// Gather icons with share counts
+					if (el.parentNode.className.indexOf('ssk-count') !== -1) {
+						network = network[0]
+						uniqueKey = network + sep + getShareUrl(options, network, el)
+						if (!(uniqueKey in urlsToCount)) {
+							urlsToCount[uniqueKey] = []
+						}
+						urlsToCount[uniqueKey].push(el)
+					}
+				})
+
+				processShareCount()
+			}
+
+			if (options.forceInit === true) _init()
+			else ready(_init)
+
+			function onClick(e) {
+				var target = preventDefault(e),
+					match = elSupportsShare(target),
+					network = match[0],
+					url
+
+				if (!match) return
+
+				url = getUrl(options, network, target)
+				if (!url) return
+
+				// To use Twitter intent events, replace URL and use Twitter native share JS
+				if (
+					window.twttr &&
+					target.getAttribute('href').indexOf('twitter.com/intent/') !== -1
+				) {
+					target.setAttribute('href', url)
+					return
+				}
+
+				if (network !== 'email') {
+					var width, height
+					if (network === 'buffer') {
+						width = 800
+						height = 680
+					} else {
+						width = 575
+						height = 400
+					}
+					var win = winOpen(url, width, height)
+
+					if (options.onOpen) {
+						options.onOpen(target, network, url, win)
+					}
+
+					if (options.onClose) {
+						var closeInt = window.setInterval(function () {
+							if (win.closed !== false) {
+								window.clearInterval(closeInt)
+								options.onClose(target, network, url, win)
+							}
+						}, 250)
+					}
+				} else {
+					document.location = url
+				}
+			}
+
+			function processShareCount() {
+				var a, ref
+				for (a in urlsToCount) {
+					ref = a.split(sep)
+					;(function (els) {
+						getCount(ref[0], ref[1], options, function (cnt) {
+							for (var c in els) addCount(els[c], cnt)
+						})
+					})(urlsToCount[a])
+				}
+			}
+
+			return this.nodes
+		}
+	}
+
+	wrap = function (selector) {
+		return new _wrap(selector)
+	}
+
+	function init(opts) {
+		return wrap(opts).share()
+	}
+
+	function ready(fn) {
+		if (document.readyState != 'loading') {
+			fn()
+		} else if (document.addEventListener) {
+			document.addEventListener('DOMContentLoaded', fn)
+		} else {
+			document.attachEvent('onreadystatechange', function () {
+				if (document.readyState != 'loading') fn()
+			})
+		}
+	}
+
+	function $(selector) {
+		return document.querySelectorAll(selector)
+	}
+
+	function each(elements, fn) {
+		for (var i = 0; i < elements.length; i++) fn(elements[i], i)
+	}
+
+	function addEventListener(el, eventName, handler) {
+		if (el.addEventListener) {
+			el.addEventListener(eventName, handler)
+		} else {
+			el.attachEvent('on' + eventName, function () {
+				handler.call(el)
+			})
+		}
+	}
+
+	function elSupportsShare(el) {
+		return el.className.match(supportsShare)
+	}
+
+	function preventDefault(e) {
+		var evt = e || window.event // IE8 compatibility
+		if (evt.preventDefault) {
+			evt.preventDefault()
+		} else {
+			evt.returnValue = false
+			evt.cancelBubble = true
+		}
+		return evt.currentTarget || evt.srcElement
+	}
+
+	function winOpen(url, width, height) {
+		var win, left, top, opts
+		if (width && height) {
+			left = document.documentElement.clientWidth / 2 - width / 2
+			top = (document.documentElement.clientHeight - height) / 2
+			opts =
+				'status=1,resizable=yes' +
+				',width=' +
+				width +
+				',height=' +
+				height +
+				',top=' +
+				top +
+				',left=' +
+				left
+			win = window.open(url, '', opts)
+		} else {
+			win = window.open(url)
+		}
+		win.focus()
+		return win
+	}
+
+	function getUrl(options, network, el) {
+		var url,
+			dataOpts = getDataOpts(options, network, el),
+			shareUrl = getShareUrl(options, network, el, dataOpts),
+			title =
+				typeof dataOpts['title'] !== 'undefined'
+					? dataOpts['title']
+					: getTitle(network),
+			text =
+				typeof dataOpts['text'] !== 'undefined'
+					? dataOpts['text']
+					: getText(network),
+			image = dataOpts['image']
+				? dataOpts['image']
+				: getMetaContent('og:image'),
+			via =
+				typeof dataOpts['via'] !== 'undefined'
+					? dataOpts['via']
+					: getMetaContent('twitter:site'),
+			paramsObj = {
+				shareUrl: shareUrl,
+				title: title,
+				text: text,
+				image: image,
+				via: via,
+				options: options,
+				shareUrlEncoded: function () {
+					return encodeURIComponent(this.shareUrl)
+				}
+			}
+		switch (network) {
+			case 'facebook':
+				url =
+					'https://www.facebook.com/share.php?u=' + paramsObj.shareUrlEncoded()
+				break
+			case 'twitter':
+				url =
+					'https://twitter.com/intent/tweet?url=' +
+					paramsObj.shareUrlEncoded() +
+					'&text=' +
+					encodeURIComponent(title + (text && title ? ' - ' : '') + text)
+				if (via) url += '&via=' + via.replace('@', '')
+				break
+			case 'google-plus':
+				url = 'https://plus.google.com/share?url=' + paramsObj.shareUrlEncoded()
+				break
+			case 'pinterest':
+				url =
+					'https://pinterest.com/pin/create/button/?url=' +
+					paramsObj.shareUrlEncoded() +
+					'&description=' +
+					encodeURIComponent(text)
+				if (image) url += '&media=' + encodeURIComponent(image)
+				break
+			case 'tumblr':
+				url =
+					'https://www.tumblr.com/share/link?url=' +
+					paramsObj.shareUrlEncoded() +
+					'&name=' +
+					encodeURIComponent(title) +
+					'&description=' +
+					encodeURIComponent(text)
+				break
+			case 'linkedin':
+				url =
+					'https://www.linkedin.com/shareArticle?mini=true&url=' +
+					paramsObj.shareUrlEncoded() +
+					'&title=' +
+					encodeURIComponent(title) +
+					'&summary=' +
+					encodeURIComponent(text)
+				break
+			case 'vk':
+				url =
+					'https://vkontakte.ru/share.php?url=' + paramsObj.shareUrlEncoded()
+				break
+			case 'buffer':
+				url =
+					'https://buffer.com/add?source=button&url=' +
+					paramsObj.shareUrlEncoded() +
+					'&text=' +
+					encodeURIComponent(text)
+				break
+			case 'email':
+				url =
+					'mailto:?subject=' +
+					encodeURIComponent(title) +
+					'&body=' +
+					encodeURIComponent(title + '\n' + shareUrl + '\n\n' + text + '\n')
+				break
+		}
+
+		paramsObj.networkUrl = url
+
+		if (options.onBeforeOpen) {
+			options.onBeforeOpen(el, network, paramsObj)
+		}
+
+		return paramsObj.networkUrl
+	}
+
+	function getShareUrl(options, network, el, dataOpts) {
+		dataOpts = dataOpts || getDataOpts(options, network, el)
+		return dataOpts['url'] || window.location.href
+	}
+
+	function getTitle(network) {
+		var title
+		if (network == 'twitter') title = getMetaContent('twitter:title')
+		return title || document.title
+	}
+
+	function getText(network) {
+		var text
+		if (network == 'twitter') text = getMetaContent('twitter:description')
+		return text || getMetaContent('description')
+	}
+
+	function getMetaContent(tagName, attr) {
+		var text,
+			tag = $(
+				'meta[' +
+					(attr ? attr : tagName.indexOf('og:') === 0 ? 'property' : 'name') +
+					'="' +
+					tagName +
+					'"]'
+			)
+		if (tag.length) {
+			text = tag[0].getAttribute('content') || ''
+		}
+		return text || ''
+	}
+
+	function getDataOpts(options, network, el) {
+		var validOpts = ['url', 'title', 'text', 'image'],
+			opts = {},
+			optValue,
+			optKey,
+			dataKey,
+			a,
+			parent = el.parentNode
+		network == 'twitter' && validOpts.push('via')
+		for (a in validOpts) {
+			optKey = validOpts[a]
+			dataKey = 'data-' + optKey
+			optValue =
+				el.getAttribute(dataKey) ||
+				parent.getAttribute(dataKey) ||
+				(options[network] && typeof options[network][optKey] != 'undefined'
+					? options[network][optKey]
+					: options[optKey])
+			if (typeof optValue != 'undefined') {
+				opts[optKey] = optValue
+			}
+		}
+		return opts
+	}
+
+	function addCount(el, cnt) {
+		var newEl = document.createElement('div')
+		newEl.innerHTML = cnt
+		newEl.className = 'ssk-num'
+		el.appendChild(newEl)
+	}
+
+	function getCount(network, shareUrl, options, onReady) {
+		var url,
+			parseFunc,
+			body,
+			shareUrlEnc = encodeURIComponent(shareUrl)
+		switch (network) {
+			case 'facebook':
+				url = 'https://graph.facebook.com/?id=' + shareUrlEnc
+				parseFunc = function (r) {
+					return onReady(r.share ? r.share.share_count : 0)
+				}
+				break
+			case 'twitter':
+				if (options && options.twitter && options.twitter.countCallback) {
+					options.twitter.countCallback(shareUrl, onReady)
+				}
+				break
+			case 'google-plus':
+				url =
+					'https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ'
+				body =
+					'[{"method":"pos.plusones.get","id":"p",' +
+					'"params":{"id":"' +
+					shareUrl +
+					'","userId":"@viewer","groupId":"@self","nolog":true},' +
+					'"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]'
+				parseFunc = function (r) {
+					r = JSON.parse(r)
+					if (r.length) {
+						return onReady(r[0].result.metadata.globalCounts.count)
+					}
+				}
+				ajax(url, parseFunc, body)
+				return
+			case 'linkedin':
+				url =
+					'https://www.linkedin.com/countserv/count/share?url=' + shareUrlEnc
+				parseFunc = function (r) {
+					return onReady(r.count)
+				}
+				break
+			case 'pinterest':
+				url = 'https://api.pinterest.com/v1/urls/count.json?url=' + shareUrlEnc
+				parseFunc = function (r) {
+					return onReady(r.count)
+				}
+				break
+			case 'vk':
+				url = 'https://vk.com/share.php?act=count&url=' + shareUrlEnc
+				parseFunc = function (r) {
+					return onReady(r)
+				}
+				break
+			case 'buffer':
+				url = 'https://api.bufferapp.com/1/links/shares.json?url=' + shareUrlEnc
+				parseFunc = function (r) {
+					return onReady(r.shares)
+				}
+				break
+		}
+		url && parseFunc && JSONPRequest(network, url, parseFunc, body)
+	}
+
+	function ajax(url, callback, body) {
+		var request = new XMLHttpRequest()
+		request.onreadystatechange = function () {
+			if (this.readyState === 4) {
+				if (this.status >= 200 && this.status < 400) {
+					callback(this.responseText)
+				}
+			}
+		}
+		request.open('POST', url, true)
+		request.setRequestHeader('Content-Type', 'application/json')
+		request.send(body)
+	}
+
+	function JSONPRequest(network, url, callback) {
+		var callbackName =
+				'cb_' + network + '_' + Math.round(100000 * Math.random()),
+			script = document.createElement('script')
+		window[callbackName] = function (data) {
+			try {
+				// IE8
+				delete window[callbackName]
+			} catch (e) {}
+			document.body.removeChild(script)
+			callback(data)
+		}
+		if (network == 'vk') {
+			window['VK'] = {
+				Share: {
+					count: function (a, b) {
+						window[callbackName](b)
+					}
+				}
+			}
+		} else if (network == 'google-plus') {
+			window['services'] = {
+				gplus: {
+					cb: window[callbackName]
+				}
+			}
+		}
+		script.src =
+			url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName
+		document.body.appendChild(script)
+		return true
+	}
+
+	return {
+		init: init
+	}
+})()
+
+window.SocialShareKit = SocialShareKit
