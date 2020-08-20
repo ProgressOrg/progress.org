@@ -12,30 +12,34 @@ for (const hashtag of hashtags) {
 const quotes = document.getElementsByTagName('blockquote')
 for (let quote of quotes) {
 	const anchor = document.createElement('a')
-	const author =
+
+	const twitterHandle =
 		document.getElementsByClassName('social-icon twitter').length > 1
-			? ' by @' +
-			  document
+			? document
 					.getElementsByClassName('social-icon twitter')[1]
-					.href.replace('https://twitter.com/', '')
-			: ''
-	const textContent =
-		'“' +
-		document.getElementsByClassName('title')[0].textContent +
-		'”' +
-		author +
-		': “' +
-		quote.textContent +
-		'”'
+					.href.split('twitter.com/')
+			: null
+
+	const author = twitterHandle ? ` by @${twitterHandle[1]}` : ``
+
+	const textContent = `${
+		document.getElementsByClassName('title')[0].textContent
+	}${author}: “${quote.textContent}”`
+
 	anchor.href = `https://twitter.com/intent/tweet/?text=${encodeURIComponent(
 		textContent
 	)}&url=${encodeURI(
 		window.location.href
 	)}&via=ProgressOrg&hashtags=${hashtagString}`
+
 	anchor.innerText = quote.textContent
+
 	anchor.setAttribute('class', 'highlight')
+
 	anchor.setAttribute('target', '_system')
+
 	quote.innerHTML = anchor.outerHTML
+
 	tippy(quote, {
 		content:
 			'<span style="font-weight:500; font-size:18px;">Share via Twitter</span>',
